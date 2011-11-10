@@ -27,12 +27,12 @@ class FibonocciRecursive
   # takes a comma separated string, converts it to an array, grabs the last two elements, and sums them
   def return_next_integer_in_sequence(val)
     new_val = 0
-    if ! val.nil? # avoid nil variable
+    if ! val.nil?                       # avoid nil variable
       arr = val.split(',').collect! {|n| n.to_i}   # convert comma separated string to array
       if arr.length >= 2
-        last_two = arr.pop(2) #get the last two array elements
-        new_val = last_two.inject(0) { |s,v| s += v }   # sum them
-      elsif arr.length === 1      # just in case
+        last_two = arr.pop(2)           # get the last two array elements
+        new_val = last_two.inject(:+)   # sum them
+      elsif arr.length === 1            # just in case
         new_val arr[0].to_i
       end
     end
